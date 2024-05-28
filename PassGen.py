@@ -99,6 +99,31 @@ class Password_Generation:
         for i in range(0, len(self.__passwords_array), 1):
             print(f"{self.__passwords_array[i]}")
 
+    def menu(self):
+        to_do = input('Доступные действия: \n'
+                      '1 - Сохранить пароли\n'
+                      '2 - Перегенерировать\n'
+                      '3 - Изменить параметры генерации\n'
+                      '4 - Завершение работы\n>>> ')
+        match int(to_do):
+            case 1:
+                self.save_passwords()
+                self.menu()
+            case 2:
+                self.__passwords_array.clear()
+                self.pass_generation()
+                self.show_passwords()
+                self.menu()
+            case 3:
+                self.get_param_info()K
+                self.change_parameters()
+                self.menu()
+            case 4:
+                exit()
+            case _:
+                print("Если бы мы знали, что это такое. Мы не знаем, что это такое.")
+                self.menu()
+
     def save_passwords(self):
         desktop_path = "C:\\Users\\{username}\\Desktop\\GeneratedPasswords.txt".format(username=getpass.getuser())
 
@@ -106,5 +131,5 @@ class Password_Generation:
             for i in range(0, len(self.__passwords_array), 1):
                 file.writelines(f"{self.__passwords_array[i]}\n")
 
-        print("Пароли сохранены на рабочий стол. Путь до файла\n"+
+        print("Пароли сохранены на рабочий стол. Путь до файла\n" +
               "C:\\Users\\{username}\\Desktop\\GeneratedPasswords.txt".format(username=getpass.getuser()))
