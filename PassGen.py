@@ -8,7 +8,6 @@ class Password_Generation:
         self.__Generation_type = 1
         self.__Passwords_amount = 1
         self.__passwords_array = []
-        self.get_param_info()
 
     def change_amount_simbols(self):
         new_amnt = input("Введите необходимое количество символов в пароле >>> ")
