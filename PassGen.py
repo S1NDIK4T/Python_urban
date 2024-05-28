@@ -107,4 +107,5 @@ class Password_Generation:
             for i in range(0, len(self.__passwords_array), 1):
                 file.writelines(f"{self.__passwords_array[i]}\n")
 
-        print("Data has been saved to a text file on the desktop.")
+        print("Пароли сохранены на рабочий стол. Путь до файла\n"+
+              "C:\\Users\\{username}\\Desktop\\GeneratedPasswords.txt".format(username=getpass.getuser()))
